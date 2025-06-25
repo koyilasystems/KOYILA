@@ -17,7 +17,7 @@ const MyJobs = () => {
     const fetchJobs = async()=>{
       try {
           const {data} = await axios.get(
-          "http://localhost:4000/api/v1/job/getmyjobs", 
+          "${import.meta.env.VITE_API_BASE_URL}/api/v1/job/getmyjobs", 
           {withCredentials: true});
           setMyJobs(data.myjobs);
       } catch (error){
@@ -43,7 +43,7 @@ const MyJobs = () => {
   //Function For Editing Job
   const handleUpdateJob = async(jobId)=>{
     const updatedJob = myJobs.find(job=> job._id === jobId);
-    await axios.put(`http://localhost:4000/api/v1/job/update/${jobId}`, updatedJob, {
+    await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/update/${jobId}`, updatedJob, {
       withCredentials: true
     }).then(res=>{
       toast.success(res.data.message);
@@ -56,7 +56,7 @@ const MyJobs = () => {
 
   //Function For Deleting Job
   const handleDeleteJob = async (jobId) =>{
-    await axios.delete(`http://localhost:4000/api/v1/job/delete/${jobId}`,  {withCredentials: true}).then(res=>{
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/delete/${jobId}`,  {withCredentials: true}).then(res=>{
       toast.success(res.data.message);
       setMyJobs(prevJobs => prevJobs.filter(job=> job._id !== jobId))
     })
