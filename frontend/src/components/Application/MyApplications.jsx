@@ -18,8 +18,8 @@ const MyApplications = () => {
       try {
         const url =
           user?.role === "Employer"
-            ? "http://localhost:4000/api/v1/application/employer/getall"
-            : "http://localhost:4000/api/v1/application/jobseeker/getall";
+            ? "${import.meta.env.VITE_API_BASE_URL}/api/v1/application/employer/getall"
+            : "${import.meta.env.VITE_API_BASE_URL}/api/v1/application/jobseeker/getall";
 
         const res = await axios.get(url, { withCredentials: true });
         setApplications(res.data.applications);
@@ -39,7 +39,7 @@ const MyApplications = () => {
   const deleteApplication = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:4000/api/v1/application/delete/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/v1/application/delete/${id}`,
         { withCredentials: true }
       );
       toast.success(res.data.message);
