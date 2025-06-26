@@ -35,7 +35,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "${process.env.REACT_APP_API_BASE_URL}/api/v1/application/post",
+        "https://koyila-backend.onrender.com/api/v1/application/post",
         formData,
         {
           withCredentials: true,
