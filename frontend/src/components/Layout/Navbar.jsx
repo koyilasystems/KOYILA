@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "https://koyila-backend.onrender.com",
+        "${process.env.REACT_APP_API_BASE_URL}/api/v1/user/logout",
         {
           withCredentials: true,
         }
