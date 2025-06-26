@@ -23,7 +23,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "${process.env.REACT_APP_API_BASE_URL}/api/v1/user/getuser",
+          "https://koyila-backend.onrender.com/api/v1/user/getuser",
           {
             withCredentials: true,
           }
