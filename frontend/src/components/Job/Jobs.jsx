@@ -13,7 +13,7 @@ const Jobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get("${import.meta.env.VITE_API_BASE_URL}/api/v1/job/getall", {
+        const res = await axios.get("${process.env.REACT_APP_API_BASE_URL}/api/v1/job/getall", {
           withCredentials: true,
         });
         setJobs(res.data);
