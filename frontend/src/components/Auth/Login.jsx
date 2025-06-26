@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://koyila-backend.onrender.com/api/v1/user/login",
+        "${process.env.REACT_APP_API_URL}/api/v1/user/login",
         { email, password, role },
         {
           headers: {
