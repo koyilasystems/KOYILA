@@ -18,8 +18,8 @@ const MyApplications = () => {
       try {
         const url =
           user?.role === "Employer"
-            ? "${process.env.REACT_APP_API_URL}/api/v1/application/employer/getall"
-            : "${process.env.REACT_APP_API_URL}/api/v1/application/jobseeker/getall";
+            ? "https://koyila-backend.onrender.com/api/v1/application/employer/getall"
+            : "https://koyila-backend.onrender.com/api/v1/application/jobseeker/getall";
 
         const res = await axios.get(url, { withCredentials: true });
         setApplications(res.data.applications);
@@ -39,7 +39,7 @@ const MyApplications = () => {
   const deleteApplication = async (id) => {
     try {
       const res = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/api/v1/application/delete/${id}`,
+        `https://koyila-backend.onrender.com/api/v1/application/delete/${id}`,
         { withCredentials: true }
       );
       toast.success(res.data.message);
