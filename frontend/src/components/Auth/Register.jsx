@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "${process.env.REACT_APP_API_BASE_URL}/api/v1/user/register",
+        "https://koyila-backend.onrender.com/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {
