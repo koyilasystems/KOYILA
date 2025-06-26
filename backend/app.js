@@ -14,7 +14,7 @@ dotenv.config({path: "./config/config.env"});
 
 
 app.use(cors({
-    origin: [process.env.https://koyila-frontend.onrender.com],
+    origin: [process.env.REACT_APP_API_BASE_URL],
     methods: ["GET","POST","DELETE","PUT"],
     credentials: true,
 }));
